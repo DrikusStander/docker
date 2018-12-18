@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# this is not the final string yet
+docker run -d --restart=on-failure --name spawning-pool --volume hatchery -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings mysql:5.7.23

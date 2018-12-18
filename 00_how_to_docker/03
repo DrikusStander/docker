@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# run this as source ./03 as to export the variables to the main shell and not in a sub process
+eval "$(docker-machine env char)"
