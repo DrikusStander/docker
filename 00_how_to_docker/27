@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# as there is a proble with the 42school/engineering-bay container causing it to crash and restart constantly,
+# run the following commands to demonstrate the working of this question
+# docker service create -d --name redis --replicas=5 redis
+# docker service logs -f $(docker ps -n1 -f name=redis --format '{{.Names}}')
+
+docker service logs -f $(docker ps -n1 -f name=engineerin-bay --format '{{.Names}}')

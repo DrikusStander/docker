@@ -1,15 +1,15 @@
 #!/bin/bash
 
-docker run -dt --name my-flask-script -v "$PWD"/src:/root -w /root -p 3000:3000 -e FLASK_APP=hello.py python:2-slim python  
+docker run -dt --name Abathur -v "$PWD"/src:/root -w /root -p 3000:3000 -e FLASK_APP=hello.py python:2-slim python  
 
-docker exec my-flask-script sh -c "pip install flask"
-# docker exec -d my-flask-script -e FLASK_APP=hello.py
-docker exec my-flask-script sh -c "rm -fr hello.py"
-docker exec my-flask-script sh -c 'echo "from flask import Flask
+docker exec Abathur sh -c "pip install flask"
+docker exec Abathur sh -c "rm -fr hello.py"
+docker exec Abathur sh -c "rm -fr hello.pyc"
+docker exec Abathur sh -c 'echo "from flask import Flask
 app = Flask(__name__)
 
 @app.route(\"/\")
 def hello():
     return \"Hello World!\" " >> hello.py'
 
-docker exec my-flask-script sh -c "flask run --port 3000"
+docker exec -d Abathur sh -c "flask run --port 3000 --host 0.0.0.0"
